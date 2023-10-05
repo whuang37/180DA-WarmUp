@@ -14,20 +14,6 @@ COLOR_BOX = (100, 100, 200, 200) #xywh
 
 cap = cv2.VideoCapture(0)
 
-def find_histogram(clt):
-    """
-    create a histogram with k clusters
-    :param: clt
-    :return:hist
-    """
-    numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
-    (hist, _) = np.histogram(clt.labels_, bins=numLabels)
-
-    hist = hist.astype("float")
-    hist /= hist.sum()
-
-    return hist
-
 while(True):
     ret, frame = cap.read()
     color_scheme = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
