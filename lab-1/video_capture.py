@@ -37,7 +37,7 @@ while(True):
         if w*h > max_area:
             max_area = w*h
             max_contour = i
-        
+
     x,y,w,h = cv2.boundingRect(contours[max_contour])
     cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0),2)
     cv2.imshow("frame", frame)

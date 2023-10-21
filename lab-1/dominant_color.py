@@ -17,7 +17,7 @@ cap = cv2.VideoCapture(0)
 while(True):
     ret, frame = cap.read()
     color_scheme = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    
+
     cropped_frame = frame[COLOR_BOX[0]:COLOR_BOX[0]+COLOR_BOX[2], COLOR_BOX[1]:COLOR_BOX[3],:]
     frame_reshaped = cropped_frame.reshape((cropped_frame.shape[0]*cropped_frame.shape[1], 3)) # represent as row*column, channel
     clf = KMeans(n_clusters=1, n_init="auto")
@@ -26,7 +26,7 @@ while(True):
     cv2.imshow("frame", frame)
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-    
+
     print(f"Color: {clf.cluster_centers_[0]}")
 
     # masking the image
