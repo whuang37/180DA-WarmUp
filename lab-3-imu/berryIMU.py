@@ -383,10 +383,12 @@ while True:
 
     ##################### END Tilt Compensation ########################
 
-
-    if ACCx > 5:
+    if ACCx > 300:
         print("forward push")
+    if ACCy < -400:
+        print("upward lift")
 
+    print(ACCx, ACCy, ACCz)
 
     # if 1:                       #Change to '0' to stop showing the angles from the accelerometer
     #     outputString += "#  ACCX Angle %5.2f ACCY Angle %5.2f  #  " % (AccXangle, AccYangle)
